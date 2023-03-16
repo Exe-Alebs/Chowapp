@@ -1,0 +1,136 @@
+<!-- the chat interface
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <head>
+    <title>ChatApp</title>
+    <style>
+      #container {
+        width: 900px;
+        margin: 0 auto;
+      }
+      .chat-input {
+        width: 500px;
+        height: 35px;
+        border: solid 2px #444;
+      }
+      .chat-submit {
+        width: 55px;
+        height: 35px;
+        border: solid 2px #444;
+        background-color: #1ecb24;
+      }
+      .chat-window {
+        height: 500px;
+        width: 600px;
+      }
+      #chatSection {
+        float: left;
+        border: 2px black solid;
+        border-radius: 10px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>CHOWAPP</h1>
+      <div id="chatSection">
+        <ul class="chat-messages"></ul>
+        <div class="chat-window"></div>
+
+        <form class="chat-form">
+          <label class="chat-label">
+            Place your Order:
+            <input type="text" class="chat-input" />
+          </label>
+          <button type="submit" class="chat-submit" value="Submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html> -->
+
+<html lang="en">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <title>Restaurant Chatbot</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        var socket = io();
+        $('form').submit(function (e) {
+          e.preventDefault();
+          var msg = $('#m').val();
+          $('#messages').append($('<li>').text('You: ' + msg));
+          socket.emit('chat message', msg);
+          $('#m').val('');
+          return false;
+        });
+        socket.on('chat message', function (msg) {
+          $('#messages').append($('<li>').text('Bot: ' + msg));
+        });
+      });
+    </script>
+    <style>
+      #messages {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #messages li {
+        padding: 5px 10px;
+      }
+
+      #messages li:nth-child(odd) {
+        background-color: #eee;
+      }
+
+      form {
+        display: flex;
+      }
+
+      input[type='text'] {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+      }
+
+      input[type='submit'] {
+        padding: 10px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="">
+      <input
+        id="m"
+        type="text"
+        autocomplete="off"
+        placeholder="Type your message here"
+      />
+      <input type="submit" value="Send" />
+    </form>
+  </body>
+</html>
