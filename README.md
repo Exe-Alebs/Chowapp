@@ -179,9 +179,6 @@ Project Link: [https://github.com/Exe-Alebs/Chowapp](https://github.com/Exe-Aleb
 [license-shield]: https://img.shields.io/github/license/Exe-Alebs/Chowapp.svg?style=for-the-badge
 [license-url]: https://github.com/Exe-Alebs/Chowapp/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-
-[linkedin-url]: https://linkedin.com/in/Alebiosu Gbolahan
-[product-screenshot]: images/screenshot.png
-[bootstrap-url]: https://getbootstrap.com
+[linkedin-url]: https://linkedin.com/in/AlebiosuGbolahan
 [jquery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [jquery-url]: https://jquery.com
